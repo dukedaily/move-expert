@@ -1,13 +1,16 @@
 # Move资源整理
 
-1. https://move-language.github.io/move/integers.html
-2. https://github.com/move-language/move
-3. https://github.com/MystenLabs/awesome-move
-4. http://www.aptoseden.com/#/depth
+## 按顺序学习
 
-# 整体分析
+1. quickstart：https://github.com/move-language/move （✅）
+2. aptos教程：http://www.aptoseden.com/#/depth（进行中）
+3. 手册：https://move-language.github.io/move/integers.html
 
-这个是最全面对：https://github.com/MystenLabs/awesome-move ，内容包括：
+
+
+## 更多More
+
+这个链接里面啥都有：https://github.com/MystenLabs/awesome-move，具体如下：
 
 1. 概述
 2. 支持move的区块链介绍
