@@ -6,3 +6,12 @@
 
 本章参考：https://github.com/move-language/move/tree/main/language/documentation/tutorial
 
+
+
+Move状态关系：
+
+![image-20221115161455144](https://duke-typora.s3.ap-southeast-1.amazonaws.com/uPic/image-20221115161455144.png)
+
+Solidity状态关系：
+
+![image-20221115162742556](https://duke-typora.s3.ap-southeast-1.amazonaws.com/uPic/image-20221115162742556.png)
