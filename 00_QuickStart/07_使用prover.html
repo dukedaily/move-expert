@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>第1节 · HonKit</title>
+        <title>第7节:使用prover · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 4.0.4">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="08_编写正式spec.html" />
     
-    <link rel="prev" href="./" />
+    
+    <link rel="prev" href="06_通用generic.html" />
     
 
     </head>
@@ -99,16 +101,139 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../00_概述/">
+        <li class="chapter " data-level="1.2" data-path="./">
             
-                <a href="../00_概述/">
+                <a href="./">
             
                     
-                    概述
+                    快速体验
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="00_安装环境.html">
+            
+                <a href="00_安装环境.html">
+            
+                    
+                    第0节:安装环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01_创建Module.html">
+            
+                <a href="01_创建Module.html">
+            
+                    
+                    第1节:创建Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="02_增加unitest.html">
+            
+                <a href="02_增加unitest.html">
+            
+                    
+                    第2节:增加unitest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="03_设计Token.html">
+            
+                <a href="03_设计Token.html">
+            
+                    
+                    第3节:设计Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="04_实现Token.html">
+            
+                <a href="04_实现Token.html">
+            
+                    
+                    第4节:实现Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="05_测试Token.html">
+            
+                <a href="05_测试Token.html">
+            
+                    
+                    第5节:测试Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="06_通用generic.html">
+            
+                <a href="06_通用generic.html">
+            
+                    
+                    第6节:通用generic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8" data-path="07_使用prover.html">
+            
+                <a href="07_使用prover.html">
+            
+                    
+                    第7节:使用prover
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="08_编写正式spec.html">
+            
+                <a href="08_编写正式spec.html">
+            
+                    
+                    第8节:编写正式spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -123,30 +248,11 @@
             
 
             
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../01_move基础/01_test.html">
-            
-                <a href="../01_move基础/01_test.html">
-            
-                    
-                    第1节
-            
-                </a>
-            
-
-            
         </li>
     
-
-            </ul>
+        <li class="chapter " data-level="1.4" data-path="../02_move进阶/">
             
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="./">
-            
-                <a href="./">
+                <a href="../02_move进阶/">
             
                     
                     第二章
@@ -154,25 +260,6 @@
                 </a>
             
 
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.4.1" data-path="01_test.html">
-            
-                <a href="01_test.html">
-            
-                    
-                    第1节
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -206,7 +293,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >第1节</a>
+        <a href=".." >第7节:使用prover</a>
     </h1>
 </div>
 
@@ -221,7 +308,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>test</p>
+                                <h1 id="第7节：使用prover">第7节：使用prover</h1>
+<p>首先安装：</p>
+<pre><code class="lang-sh">./scripts/dev_setup.sh -yp
+Y
+cargo build
+<span class="hljs-built_in">source</span> ~/.profile
+</code></pre>
+<p><a href="https://github.com/move-language/move/blob/main/language/move-prover/doc/user/prover-guide.md" target="_blank">Move prover</a></p>
+<h2 id="code">Code</h2>
+<p>在上一节的BasicCoin中增加如下代码：</p>
+<pre><code class="lang-rust">    spec balance_of {
+        pragma aborts_if_is_strict;
+    }
+</code></pre>
+<p>执行：</p>
+<pre><code class="lang-sh">move prove
+</code></pre>
+<p>报错：</p>
+<p><img src="https://duke-typora.s3.ap-southeast-1.amazonaws.com/uPic/image-20221116184224594.png" alt="image-20221116184224594"></p>
+<p>修改代码：</p>
+<pre><code class="lang-rust">    spec balance_of {
+        pragma aborts_if_is_strict;
+
+          <span class="hljs-comment">// 增加这行代码</span>
+        aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(owner);
+    }
+</code></pre>
+<p>重新运行：</p>
+<pre><code class="lang-sh">move prove
+</code></pre>
+<p>结果如下：</p>
+<p><img src="https://duke-typora.s3.ap-southeast-1.amazonaws.com/uPic/image-20221116183826667.png" alt="image-20221116183826667"></p>
+<h2 id="note">Note</h2>
 
                                 
                                 </section>
@@ -249,10 +368,14 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第二章">
+                <a href="06_通用generic.html" class="navigation navigation-prev " aria-label="Previous page: 第6节:通用generic">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="08_编写正式spec.html" class="navigation navigation-next " aria-label="Next page: 第8节:编写正式spec">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -261,7 +384,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第1节","level":"1.4.1","depth":2,"previous":{"title":"第二章","level":"1.4","depth":1,"path":"02_move进阶/README.md","ref":"02_move进阶/README.md","articles":[{"title":"第1节","level":"1.4.1","depth":2,"path":"02_move进阶/01_test.md","ref":"02_move进阶/01_test.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02_move进阶/01_test.md","mtime":"2022-11-15T03:37:35.670Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-11-15T03:43:13.621Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第7节:使用prover","level":"1.2.8","depth":2,"next":{"title":"第8节:编写正式spec","level":"1.2.9","depth":2,"path":"00_QuickStart/08_编写正式spec.md","ref":"00_QuickStart/08_编写正式spec.md","articles":[]},"previous":{"title":"第6节:通用generic","level":"1.2.7","depth":2,"path":"00_QuickStart/06_通用generic.md","ref":"00_QuickStart/06_通用generic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"00_QuickStart/07_使用prover.md","mtime":"2022-11-16T10:47:02.254Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-11-16T11:56:33.092Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -313,6 +436,10 @@
     </script>
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

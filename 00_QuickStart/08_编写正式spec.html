@@ -1,0 +1,551 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>第8节:编写正式spec · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../01_move基础/" />
+    
+    
+    <link rel="prev" href="07_使用prover.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    快速体验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="00_安装环境.html">
+            
+                <a href="00_安装环境.html">
+            
+                    
+                    第0节:安装环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01_创建Module.html">
+            
+                <a href="01_创建Module.html">
+            
+                    
+                    第1节:创建Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="02_增加unitest.html">
+            
+                <a href="02_增加unitest.html">
+            
+                    
+                    第2节:增加unitest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="03_设计Token.html">
+            
+                <a href="03_设计Token.html">
+            
+                    
+                    第3节:设计Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="04_实现Token.html">
+            
+                <a href="04_实现Token.html">
+            
+                    
+                    第4节:实现Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="05_测试Token.html">
+            
+                <a href="05_测试Token.html">
+            
+                    
+                    第5节:测试Token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="06_通用generic.html">
+            
+                <a href="06_通用generic.html">
+            
+                    
+                    第6节:通用generic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="07_使用prover.html">
+            
+                <a href="07_使用prover.html">
+            
+                    
+                    第7节:使用prover
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.9" data-path="08_编写正式spec.html">
+            
+                <a href="08_编写正式spec.html">
+            
+                    
+                    第8节:编写正式spec
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../01_move基础/">
+            
+                <a href="../01_move基础/">
+            
+                    
+                    第一章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../02_move进阶/">
+            
+                <a href="../02_move进阶/">
+            
+                    
+                    第二章
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第8节:编写正式spec</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="第8节：编写正式spec">第8节：编写正式spec</h1>
+<h2 id="code">Code</h2>
+<p>本节增加了：</p>
+<ul>
+<li>spec transfer </li>
+<li>spec withdraw</li>
+<li>spec deposit</li>
+</ul>
+<pre><code class="lang-rust"><span class="hljs-comment">/// This module defines a minimal and generic Coin and Balance.</span>
+module NamedAddr::BasicCoin {
+    <span class="hljs-keyword">use</span> std::signer;
+
+    <span class="hljs-comment">/// Error codes</span>
+    <span class="hljs-keyword">const</span> ENOT_MODULE_OWNER: <span class="hljs-built_in">u64</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> EINSUFFICIENT_BALANCE: <span class="hljs-built_in">u64</span> = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">const</span> EALREADY_HAS_BALANCE: <span class="hljs-built_in">u64</span> = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">const</span> EEQUAL_ADDR: <span class="hljs-built_in">u64</span> = <span class="hljs-number">4</span>;
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Coin</span></span>&lt;phantom CoinType&gt; has store {
+        value: <span class="hljs-built_in">u64</span>
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Balance</span></span>&lt;phantom CoinType&gt; has key {
+        coin: Coin&lt;CoinType&gt;
+    }
+
+    <span class="hljs-comment">/// Publish an empty balance resource under `account`&apos;s address. This function must be called before</span>
+    <span class="hljs-comment">/// minting or transferring to the account.</span>
+    public fun publish_balance&lt;CoinType&gt;(account: &amp;signer) {
+        <span class="hljs-keyword">let</span> empty_coin = Coin&lt;CoinType&gt; { value: <span class="hljs-number">0</span> };
+        <span class="hljs-built_in">assert!</span>(!exists&lt;Balance&lt;CoinType&gt;&gt;(signer::address_of(account)), EALREADY_HAS_BALANCE);
+        move_to(account, Balance&lt;CoinType&gt; { coin: empty_coin });
+    }
+
+    <span class="hljs-comment">/// Mint `amount` tokens to `mint_addr`. This method requires a witness with `CoinType` so that the</span>
+    <span class="hljs-comment">/// module that owns `CoinType` can decide the minting policy.</span>
+    public fun mint&lt;CoinType: <span class="hljs-built_in">drop</span>&gt;(mint_addr: address, amount: <span class="hljs-built_in">u64</span>, _witness: CoinType) acquires Balance {
+        <span class="hljs-comment">// Deposit `total_value` amount of tokens to mint_addr&apos;s balance</span>
+        deposit(mint_addr, Coin&lt;CoinType&gt; { value: amount });
+    }
+
+    public fun balance_of&lt;CoinType&gt;(owner: address): <span class="hljs-built_in">u64</span> acquires Balance {
+        borrow_global&lt;Balance&lt;CoinType&gt;&gt;(owner).coin.value
+    }
+
+    spec balance_of {
+        pragma aborts_if_is_strict;
+        aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(owner);
+    }
+
+    <span class="hljs-comment">/// Transfers `amount` of tokens from `from` to `to`. This method requires a witness with `CoinType` so that the</span>
+    <span class="hljs-comment">/// module that owns `CoinType` can decide the transferring policy.</span>
+    public fun transfer&lt;CoinType: <span class="hljs-built_in">drop</span>&gt;(from: &amp;signer, to: address, amount: <span class="hljs-built_in">u64</span>, _witness: CoinType) acquires Balance {
+        <span class="hljs-keyword">let</span> from_addr = signer::address_of(from);
+        <span class="hljs-built_in">assert!</span>(from_addr != to, EEQUAL_ADDR);
+        <span class="hljs-keyword">let</span> check = withdraw&lt;CoinType&gt;(from_addr, amount);
+        deposit&lt;CoinType&gt;(to, check);
+    }
+
+    spec transfer {
+        <span class="hljs-keyword">let</span> addr_from = signer::address_of(from);
+
+        <span class="hljs-keyword">let</span> balance_from = global&lt;Balance&lt;CoinType&gt;&gt;(addr_from).coin.value;
+        <span class="hljs-keyword">let</span> balance_to = global&lt;Balance&lt;CoinType&gt;&gt;(to).coin.value;
+        <span class="hljs-keyword">let</span> post balance_from_post = global&lt;Balance&lt;CoinType&gt;&gt;(addr_from).coin.value;
+        <span class="hljs-keyword">let</span> post balance_to_post = global&lt;Balance&lt;CoinType&gt;&gt;(to).coin.value;
+
+             <span class="hljs-comment">// 这部分时练习</span>
+          aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(addr_from);
+        aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(to);
+        aborts_if balance_from &lt; amount;
+        aborts_if balance_to + amount &gt; MAX_U64;
+        aborts_if addr_from == to;
+
+        ensures balance_from_post == balance_from - amount;
+        ensures balance_to_post == balance_to + amount;
+    }
+
+    fun withdraw&lt;CoinType&gt;(addr: address, amount: <span class="hljs-built_in">u64</span>) : Coin&lt;CoinType&gt; acquires Balance {
+        <span class="hljs-keyword">let</span> balance = balance_of&lt;CoinType&gt;(addr);
+        <span class="hljs-built_in">assert!</span>(balance &gt;= amount, EINSUFFICIENT_BALANCE);
+        <span class="hljs-keyword">let</span> balance_ref = &amp;<span class="hljs-keyword">mut</span> borrow_global_mut&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+        *balance_ref = balance - amount;
+        Coin&lt;CoinType&gt; { value: amount }
+    }
+
+    spec withdraw {
+        <span class="hljs-keyword">let</span> balance = global&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+
+        aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(addr);
+        aborts_if balance &lt; amount;
+
+        <span class="hljs-keyword">let</span> post balance_post = global&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+        ensures result == Coin&lt;CoinType&gt; { value: amount };
+        ensures balance_post == balance - amount;
+    }
+
+    fun deposit&lt;CoinType&gt;(addr: address, check: Coin&lt;CoinType&gt;) acquires Balance{
+        <span class="hljs-keyword">let</span> balance = balance_of&lt;CoinType&gt;(addr);
+        <span class="hljs-keyword">let</span> balance_ref = &amp;<span class="hljs-keyword">mut</span> borrow_global_mut&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+        <span class="hljs-keyword">let</span> Coin { value } = check;
+        *balance_ref = balance + value;
+    }
+
+    spec deposit {
+        <span class="hljs-keyword">let</span> balance = global&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+        <span class="hljs-keyword">let</span> check_value = check.value;
+
+        aborts_if !exists&lt;Balance&lt;CoinType&gt;&gt;(addr);
+        aborts_if balance + check_value &gt; MAX_U64;
+
+        <span class="hljs-keyword">let</span> post balance_post = global&lt;Balance&lt;CoinType&gt;&gt;(addr).coin.value;
+        ensures balance_post == balance + check_value;
+    }
+}
+</code></pre>
+<h2 id="note">Note</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="07_使用prover.html" class="navigation navigation-prev " aria-label="Previous page: 第7节:使用prover">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../01_move基础/" class="navigation navigation-next " aria-label="Next page: 第一章">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第8节:编写正式spec","level":"1.2.9","depth":2,"next":{"title":"第一章","level":"1.3","depth":1,"path":"01_move基础/README.md","ref":"01_move基础/README.md","articles":[]},"previous":{"title":"第7节:使用prover","level":"1.2.8","depth":2,"path":"00_QuickStart/07_使用prover.md","ref":"00_QuickStart/07_使用prover.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"00_QuickStart/08_编写正式spec.md","mtime":"2022-11-16T10:57:43.595Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-11-16T11:56:33.092Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

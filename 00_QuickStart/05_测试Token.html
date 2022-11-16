@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>第二章 · HonKit</title>
+        <title>第5节:测试Token · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 4.0.4">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="06_通用generic.html" />
     
-    <link rel="prev" href="../01_move基础/" />
+    
+    <link rel="prev" href="04_实现Token.html" />
     
 
     </head>
@@ -99,9 +101,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../00_QuickStart/">
+        <li class="chapter " data-level="1.2" data-path="./">
             
-                <a href="../00_QuickStart/">
+                <a href="./">
             
                     
                     快速体验
@@ -113,9 +115,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../00_QuickStart/00_安装环境.html">
+        <li class="chapter " data-level="1.2.1" data-path="00_安装环境.html">
             
-                <a href="../00_QuickStart/00_安装环境.html">
+                <a href="00_安装环境.html">
             
                     
                     第0节:安装环境
@@ -126,9 +128,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../00_QuickStart/01_创建Module.html">
+        <li class="chapter " data-level="1.2.2" data-path="01_创建Module.html">
             
-                <a href="../00_QuickStart/01_创建Module.html">
+                <a href="01_创建Module.html">
             
                     
                     第1节:创建Module
@@ -139,9 +141,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../00_QuickStart/02_增加unitest.html">
+        <li class="chapter " data-level="1.2.3" data-path="02_增加unitest.html">
             
-                <a href="../00_QuickStart/02_增加unitest.html">
+                <a href="02_增加unitest.html">
             
                     
                     第2节:增加unitest
@@ -152,9 +154,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../00_QuickStart/03_设计Token.html">
+        <li class="chapter " data-level="1.2.4" data-path="03_设计Token.html">
             
-                <a href="../00_QuickStart/03_设计Token.html">
+                <a href="03_设计Token.html">
             
                     
                     第3节:设计Token
@@ -165,9 +167,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="../00_QuickStart/04_实现Token.html">
+        <li class="chapter " data-level="1.2.5" data-path="04_实现Token.html">
             
-                <a href="../00_QuickStart/04_实现Token.html">
+                <a href="04_实现Token.html">
             
                     
                     第4节:实现Token
@@ -178,9 +180,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../00_QuickStart/05_测试Token.html">
+        <li class="chapter active" data-level="1.2.6" data-path="05_测试Token.html">
             
-                <a href="../00_QuickStart/05_测试Token.html">
+                <a href="05_测试Token.html">
             
                     
                     第5节:测试Token
@@ -191,9 +193,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="../00_QuickStart/06_通用generic.html">
+        <li class="chapter " data-level="1.2.7" data-path="06_通用generic.html">
             
-                <a href="../00_QuickStart/06_通用generic.html">
+                <a href="06_通用generic.html">
             
                     
                     第6节:通用generic
@@ -204,9 +206,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="../00_QuickStart/07_使用prover.html">
+        <li class="chapter " data-level="1.2.8" data-path="07_使用prover.html">
             
-                <a href="../00_QuickStart/07_使用prover.html">
+                <a href="07_使用prover.html">
             
                     
                     第7节:使用prover
@@ -217,9 +219,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="../00_QuickStart/08_编写正式spec.html">
+        <li class="chapter " data-level="1.2.9" data-path="08_编写正式spec.html">
             
-                <a href="../00_QuickStart/08_编写正式spec.html">
+                <a href="08_编写正式spec.html">
             
                     
                     第8节:编写正式spec
@@ -248,9 +250,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../02_move进阶/">
             
-                <a href="./">
+                <a href="../02_move进阶/">
             
                     
                     第二章
@@ -291,7 +293,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >第二章</a>
+        <a href=".." >第5节:测试Token</a>
     </h1>
 </div>
 
@@ -306,7 +308,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="第2章：move进阶语法">第2章：Move进阶语法</h1>
+                                <h1 id="第5节：增加单元测试">第5节：增加单元测试</h1>
+<p>上节我们已经编写了合约代码，本节我们将编写单元测试。</p>
+<h2 id="code">Code</h2>
+<pre><code class="lang-rust"><span class="hljs-comment">/// This module defines a minimal Coin and Balance.</span>
+module NamedAddr::BasicCoin {
+    <span class="hljs-keyword">use</span> std::signer;
+
+    <span class="hljs-comment">// 省略上一节的业务代码 ... </span>
+
+    <span class="hljs-meta">#[test(account = @0x1)]</span> <span class="hljs-comment">// Creates a signer for the `account` argument with address `@0x1`</span>
+    <span class="hljs-meta">#[expected_failure]</span> <span class="hljs-comment">// This test should abort</span>
+    fun mint_non_owner(account: signer) acquires Balance {
+        <span class="hljs-comment">// Make sure the address we&apos;ve chosen doesn&apos;t match the module</span>
+        <span class="hljs-comment">// owner address</span>
+        publish_balance(&amp;account);
+        <span class="hljs-built_in">assert!</span>(signer::address_of(&amp;account) != MODULE_OWNER, <span class="hljs-number">0</span>);
+        mint(&amp;account, @<span class="hljs-number">0x1</span>, <span class="hljs-number">10</span>);
+    }
+
+    <span class="hljs-meta">#[test(account = @NamedAddr)]</span> <span class="hljs-comment">// Creates a signer for the `account` argument with the value of the named address `NamedAddr`</span>
+    fun mint_check_balance(account: signer) acquires Balance {
+        <span class="hljs-keyword">let</span> addr = signer::address_of(&amp;account);
+        publish_balance(&amp;account);
+        mint(&amp;account, @NamedAddr, <span class="hljs-number">42</span>);
+        <span class="hljs-built_in">assert!</span>(balance_of(addr) == <span class="hljs-number">42</span>, <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-meta">#[test(account = @0x1)]</span>
+    fun publish_balance_has_zero(account: signer) acquires Balance {
+        <span class="hljs-keyword">let</span> addr = signer::address_of(&amp;account);
+        publish_balance(&amp;account);
+        <span class="hljs-built_in">assert!</span>(balance_of(addr) == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-meta">#[test(account = @0x1)]</span>
+    <span class="hljs-meta">#[expected_failure(abort_code = 2)]</span> <span class="hljs-comment">// Can specify an abort code</span>
+    fun publish_balance_already_exists(account: signer) {
+        publish_balance(&amp;account);
+        publish_balance(&amp;account);
+    }
+
+    <span class="hljs-meta">#[test]</span>
+    <span class="hljs-meta">#[expected_failure]</span>
+    fun withdraw_dne() acquires Balance {
+        <span class="hljs-comment">// Need to unpack the coin since `Coin` is a resource</span>
+        Coin { value: _ } = withdraw(@<span class="hljs-number">0x1</span>, <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-meta">#[test(account = @0x1)]</span>
+    <span class="hljs-meta">#[expected_failure]</span> <span class="hljs-comment">// This test should fail</span>
+    fun withdraw_too_much(account: signer) acquires Balance {
+        <span class="hljs-keyword">let</span> addr = signer::address_of(&amp;account);
+        publish_balance(&amp;account);
+        Coin { value: _ } = withdraw(addr, <span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-meta">#[test(account = @NamedAddr)]</span>
+    fun can_withdraw_amount(account: signer) acquires Balance {
+        publish_balance(&amp;account);
+        <span class="hljs-keyword">let</span> amount = <span class="hljs-number">1000</span>;
+        <span class="hljs-keyword">let</span> addr = signer::address_of(&amp;account);
+        mint(&amp;account, addr, amount);
+        <span class="hljs-keyword">let</span> Coin { value } = withdraw(addr, amount);
+        <span class="hljs-built_in">assert!</span>(value == amount, <span class="hljs-number">0</span>); }
+
+
+      <span class="hljs-comment">// EXERCISE: Write `balance_of_dne` test here!</span>
+      <span class="hljs-comment">// # [test(account = @0x1)]</span>
+      # [test]
+      # [expected_failure]
+      fun balance_of_dne() acquires Balance {
+          <span class="hljs-comment">// balance_of(&amp;account);</span>
+          balance_of(@<span class="hljs-number">0x1</span>);
+      }
+}
+</code></pre>
+<p>运行：</p>
+<pre><code class="lang-sh">move <span class="hljs-built_in">test</span>
+</code></pre>
+<p><img src="https://duke-typora.s3.ap-southeast-1.amazonaws.com/uPic/image-20221115185532608.png" alt="image-20221115185532608"></p>
+<h2 id="note">Note</h2>
+<ul>
+<li>语法很怪，需要系统过一下才行</li>
+</ul>
 
                                 
                                 </section>
@@ -334,10 +419,14 @@
 
             
                 
-                <a href="../01_move基础/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第一章">
+                <a href="04_实现Token.html" class="navigation navigation-prev " aria-label="Previous page: 第4节:实现Token">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="06_通用generic.html" class="navigation navigation-next " aria-label="Next page: 第6节:通用generic">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -346,7 +435,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第二章","level":"1.4","depth":1,"previous":{"title":"第一章","level":"1.3","depth":1,"path":"01_move基础/README.md","ref":"01_move基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02_move进阶/README.md","mtime":"2022-11-16T11:54:59.879Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-11-16T11:56:33.092Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第5节:测试Token","level":"1.2.6","depth":2,"next":{"title":"第6节:通用generic","level":"1.2.7","depth":2,"path":"00_QuickStart/06_通用generic.md","ref":"00_QuickStart/06_通用generic.md","articles":[]},"previous":{"title":"第4节:实现Token","level":"1.2.5","depth":2,"path":"00_QuickStart/04_实现Token.md","ref":"00_QuickStart/04_实现Token.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"00_QuickStart/05_测试Token.md","mtime":"2022-11-16T06:44:35.295Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-11-16T11:56:33.092Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
